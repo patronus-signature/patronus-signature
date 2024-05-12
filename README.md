@@ -1,16 +1,15 @@
-### Hi there 👋
+## Patronus signature
 
-<!--
-**patronus-signature/patronus-signature** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Reference code for Patronus signature scheme underlying sampler.
 
-Here are some ideas to get you started:
+## Description
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Reference implementation of Patronus signature scheme sampler. Efficiency tests are provided for parameter sets derived by NIST security levels II, III and V.
+More details in https://eprint.iacr.org/2024/411.
+## Usage
+
+Apply `make` to build the project. Tests are present in folder `test\` for NIST security levels II, III, and V for both AES and SHAKE.
+
+## License
+
+CCV0 License
