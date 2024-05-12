@@ -5,7 +5,7 @@ More details in https://eprint.iacr.org/2024/411.
 
 ## Usage
 
-Apply `make` to build the project and 'make clean' to clean. Tests are present in folder `test\` for NIST security levels II, III, and V for both AES and SHAKE.
+Apply `make` to build the project and `make clean` to clean. Tests are present in folder `test\` for NIST security levels II, III, and V for both AES and SHAKE.
 
 ## License
 
