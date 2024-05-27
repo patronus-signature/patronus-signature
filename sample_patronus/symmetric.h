@@ -2,7 +2,9 @@
 #define SYMMETRIC_H
 
 #include <stdint.h>
-#include "params_patronus.h"
+
+#define SEEDBYTES 32
+#define CRHBYTES 64
 
 #ifdef PATRONUS_USE_AES
 

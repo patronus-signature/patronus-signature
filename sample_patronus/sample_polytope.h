@@ -13,6 +13,6 @@ typedef struct {
   poly vec[L];
 } polyvecl;
 
-void polyvecl_uniform_polytope(polyvecl *v, const uint8_t seed[CRHBYTES], uint16_t nonce);
+int polyvecl_uniform_polytope(polyvecl *v, const uint8_t seed[CRHBYTES], uint16_t nonce);
 
 #endif

@@ -1,27 +1,27 @@
 #ifndef PARAMS_PATRONUS_H
 #define PARAMS_PATRONUS_H
 
-#define SEEDBYTES 32
-#define CRHBYTES 64
+#include "symmetric.h"
+
 #define N 256
 
 #if PATRONUS_PARAMS == 2
-#define R 183662
-#define BR 5877184
-#define RP 1
 #define L 4
+#define R 187158
+#define BR 5968322
+#define POLYVECL_UNIFORM_POLYTOPE_NBLOCKS ((35 * L*N + STREAM256_BLOCKBYTES - 1)/STREAM256_BLOCKBYTES)
 
 #elif PATRONUS_PARAMS == 3
-#define R 289912
-#define BR 10372207
-#define RP 1
 #define L 5
+#define R 277230
+#define BR 9910206
+#define POLYVECL_UNIFORM_POLYTOPE_NBLOCKS ((45 * L*N + STREAM256_BLOCKBYTES - 1)/STREAM256_BLOCKBYTES)
 
 #elif PATRONUS_PARAMS == 5
-#define R 569261
-#define BR 24087968
-#define RP 1
 #define L 7
+#define R 571541
+#define BR 24182624
+#define POLYVECL_UNIFORM_POLYTOPE_NBLOCKS ((50 * L*N + STREAM256_BLOCKBYTES - 1)/STREAM256_BLOCKBYTES)
 
 #endif
 #endif

@@ -2,8 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "cpucycles.h"
-#include "speed_print.h"
+#include "rand_print.h"
 
 static int cmp_uint64(const void *a, const void *b) {
   if(*(uint64_t *)a < *(uint64_t *)b) return -1;
@@ -28,24 +27,22 @@ static uint64_t average(uint64_t *t, size_t tlen) {
   return acc/tlen;
 }
 
-void print_results(const char *s, uint64_t *t, size_t tlen) {
+static double variance(uint64_t *t, size_t tlen) {
   size_t i;
-  static uint64_t overhead = -1;
+  double acc=.0, mean;
 
-  if(tlen < 2) {
-    fprintf(stderr, "ERROR: Need a least two cycle counts!\n");
-    return;
-  }
+  mean = (double)average(t, tlen);
 
-  if(overhead  == (uint64_t)-1)
-    overhead = cpucycles_overhead();
+  for(i=0;i<tlen;i++)
+    acc += ((double)t[i]-mean)*((double)t[i]-mean);
 
-  tlen--;
-  for(i=0;i<tlen;++i)
-    t[i] = t[i+1] - t[i] - overhead;
+  return acc/((double)tlen-1.);
+}
 
+void print_randomness(const char *s, uint64_t *r, size_t tlen) {
   printf("%s\n", s);
-  printf("median: %llu cycles/sample\n", (unsigned long long)median(t, tlen));
-  printf("average: %llu cycles/sample\n", (unsigned long long)average(t, tlen));
+  printf("median: %llu bytes/sample\n", (unsigned long long)median(r, tlen));
+  printf("average: %llu bytes/sample\n", (unsigned long long)average(r, tlen));
+  printf("variance: %17f\n", variance(r, tlen));
   printf("\n");
 }
