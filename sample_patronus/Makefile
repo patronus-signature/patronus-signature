@@ -1,4 +1,4 @@
-CC ?= /usr/bin/gcc
+CC ?= /usr/bin/cc
 CFLAGS += -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wredundant-decls \
   -Wshadow -Wvla -Wpointer-arith -O3 -fomit-frame-pointer -g
 NISTFLAGS += -Wno-unused-result -O3 -fomit-frame-pointer
